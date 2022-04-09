@@ -20,11 +20,20 @@ const config = {
 
     plugins: [
         new HtmlWebpackPlugin({
-            template: '../public/index.html'
+            template: '../public/index.html',
+            inject: 'body',
+            hash: true
         })
     ],
 
-    watch: process.env.NODE_ENV === 'production' ? false : true
+    devServer: { 
+        static: {
+            directory: path.join(__dirname, 'public'),
+        },
+        port: 8888,
+        hot: true
+    },   
+
 }
 
 module.exports = config
