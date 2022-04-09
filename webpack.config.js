@@ -1,8 +1,23 @@
 const path = require("path");
+
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 
 const mode = process.env.NODE_ENV;
+
+const plugins = [
+  new CleanWebpackPlugin(),
+  new HtmlWebpackPlugin({
+    template: "./index.html",
+    inject: "body",
+    hash: false,
+  }),
+];
+
+if (mode === "development") {
+  plugins.push(new ReactRefreshWebpackPlugin());
+}
 
 const config = {
   mode: mode === "production" ? "production" : "development",
@@ -43,14 +58,8 @@ const config = {
     ],
   },
 
-  plugins: [
-    new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      template: "./index.html",
-      inject: "body",
-      hash: false,
-    }),
-  ],
+  plugins,
+
   devServer: {
     static: {
       directory: path.join(__dirname, "public"),

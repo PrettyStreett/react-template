@@ -8,12 +8,17 @@
       "sourceType": "module"
     },
     "plugins": ["prettier"],
-    "extends": ["airbnb", "airbnb/hooks"],
+    "extends": ["airbnb", "airbnb/hooks", "react-app"],
     "rules": {
       "prettier/prettier": "warn",
       "no-alert": "off",
       "no-unused-vars": "warn",
       "no-console": "off",
-      "quotes": "off"
+      "quotes": "off",
+      "jsx-quotes": [
+        "off",
+        "prefer-double"
+      ],
+      "comma-dangle": "off"
     }
   }
