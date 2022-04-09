@@ -8,7 +8,7 @@
     "build": "NODE_ENV='production' webpack serve",
     "lint": "eslint ./src/",
     "fix": "prettier ./src/ --write",
-    "check": "prettier ./src/ --check",
+    "check": "prettier ./src/ --check" 
   },
   "repository": {
     "type": "git",

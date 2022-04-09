@@ -1,10 +1,12 @@
 import React from "react";
 import "./App.css";
+import image from './assets/wave.jpg';
 
 const App = () => {
   return (
     <div className="App">
-      <h1>App</h1>
+      <h1>React Template</h1>
+      <img src={image}/>
     </div>
   );
 };

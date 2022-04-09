@@ -2,8 +2,12 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
+const mode = process.env.NODE_ENV;
+
 const config = {
-  mode: process.env.NODE_ENV === "production" ? "production" : "development",
+  mode: mode === "production" ? "production" : "development",
+
+  devtool: "source-map",
 
   resolve: {
     extensions: [".js", ".jsx"],
@@ -26,7 +30,15 @@ const config = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg|webp|ico)$/i,
+        type: mode === "production" ? "asset" : "asset/resource",
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)$/i,
+        type: "asset/resource",
       },
     ],
   },
@@ -34,7 +46,7 @@ const config = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: "../public/index.html",
+      template: "./index.html",
       inject: "body",
       hash: false,
     }),
