@@ -1,0 +1,28 @@
+{
+  "name": "react-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV='development' webpack",
+    "build": "NODE_ENV='production' webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PrettyStreett/react-template.git"
+  },
+  "author": "PrettyStreet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PrettyStreett/react-template/issues"
+  },
+  "homepage": "https://github.com/PrettyStreett/react-template#readme",
+  "devDependencies": {
+    "webpack": "^5.71.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  }
+}
