@@ -1,4 +1,6 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 
 const config = {
     mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
@@ -16,6 +18,11 @@ const config = {
         path: path.resolve(__dirname, "dist")
     },
 
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: '../public/index.html'
+        })
+    ],
 
     watch: process.env.NODE_ENV === 'production' ? false : true
 }
